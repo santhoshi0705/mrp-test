@@ -10,4 +10,16 @@
         <changelist>-SNAPSHOT</changelist>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+    <distributionManagement>
+        <repository>
+            <id>incrementals</id>
+            <url>https://repo.jenkins-ci.org/incrementals/</url>
+        </repository>
+    </distributionManagement>
+    <scm>
+        <connection>scm:git:git://github.com/jglick/${project.artifactId}.git</connection>
+        <developerConnection>scm:git:git@github.com:jglick/${project.artifactId}.git</developerConnection>
+        <url>https://github.com/jglick/${project.artifactId}</url>
+      <tag>HEAD</tag>
+    </scm>
 </project>
