@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>test</groupId>
     <artifactId>mrp-test</artifactId>
-    <version>${revision}${changelist}</version>
+    <version>1.23</version>
     <packaging>pom</packaging>
     <properties>
         <revision>1.23</revision>
@@ -20,6 +20,6 @@
         <connection>scm:git:git://github.com/jglick/${project.artifactId}.git</connection>
         <developerConnection>scm:git:git@github.com:jglick/${project.artifactId}.git</developerConnection>
         <url>https://github.com/jglick/${project.artifactId}</url>
-      <tag>HEAD</tag>
+      <tag>mrp-test-1.23</tag>
     </scm>
 </project>
