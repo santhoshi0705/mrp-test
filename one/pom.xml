@@ -7,5 +7,4 @@
         <version>${revision}${changelist}</version>
     </parent>
     <artifactId>one</artifactId>
-    <packaging>pom</packaging>
 </project>
