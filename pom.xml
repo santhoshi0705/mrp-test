@@ -3,23 +3,121 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>test</groupId>
     <artifactId>mrp-test</artifactId>
-    <version>2.35-SNAPSHOT</version>
+    <version>${revision}${changelist}</version>
     <packaging>pom</packaging>
     <properties>
-        <revision>2.34</revision>
+        <revision>2.35</revision>
         <changelist>-SNAPSHOT</changelist>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <incrementals.url>http://localhost:8081/repository/incrementals/</incrementals.url>
     </properties>
     <distributionManagement>
         <repository>
-            <id>incrementals</id>
-            <url>http://localhost:8081/repository/maven-releases/</url>
+            <id>mock-releases</id>
+            <url>http://localhost:8081/repository/releases/</url>
         </repository>
     </distributionManagement>
     <scm>
         <connection>scm:git:git://github.com/jglick/${project.artifactId}.git</connection>
         <developerConnection>scm:git:git@github.com:jglick/${project.artifactId}.git</developerConnection>
         <url>https://github.com/jglick/${project.artifactId}</url>
-      <tag>HEAD</tag>
+        <tag>HEAD</tag>
     </scm>
+    <modules>
+        <module>one</module>
+        <module>two</module>
+    </modules>
+    <profiles>
+        <profile>
+            <id>consume-incrementals</id>
+            <repositories>
+                <repository>
+                    <id>incrementals</id>
+                    <url>${incrementals.url}</url>
+                    <snapshots>
+                        <enabled>false</enabled>
+                    </snapshots>
+                </repository>
+            </repositories>
+            <pluginRepositories>
+                <pluginRepository>
+                    <id>incrementals</id>
+                    <url>${incrementals.url}</url>
+                    <snapshots>
+                        <enabled>false</enabled>
+                    </snapshots>
+                </pluginRepository>
+            </pluginRepositories>
+        </profile>
+        <profile>
+            <id>produce-incrementals</id>
+            <activation>
+                <property>
+                    <name>set.changelist</name>
+                    <value>true</value>
+                </property>
+            </activation>
+            <distributionManagement>
+                <repository>
+                    <id>incrementals</id>
+                    <url>${incrementals.url}</url>
+                </repository>
+            </distributionManagement>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>flatten-maven-plugin</artifactId>
+                        <version>1.0.0</version>
+                        <configuration>
+                            <updatePomFile>true</updatePomFile>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <id>flatten</id>
+                                <phase>process-resources</phase>
+                                <goals>
+                                    <goal>flatten</goal>
+                                </goals>
+                                <configuration>
+                                    <flattenMode>oss</flattenMode>
+                                </configuration>
+                            </execution>
+                            <execution>
+                                <id>flatten.clean</id>
+                                <phase>clean</phase>
+                                <goals>
+                                    <goal>clean</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <artifactId>maven-source-plugin</artifactId>
+                        <version>3.0.1</version>
+                        <executions>
+                            <execution>
+                                <id>attach-sources</id>
+                                <goals>
+                                    <goal>jar</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <artifactId>maven-javadoc-plugin</artifactId>
+                        <version>2.10.4</version>
+                        <executions>
+                            <execution>
+                                <id>attach-javadocs</id>
+                                <goals>
+                                    <goal>jar</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 </project>
