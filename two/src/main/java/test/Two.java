@@ -1,7 +1,7 @@
 package test;
 public class Two {
-    static {
-        System.err.println("Two");
-        One.m1();
+    public static void m1() {
+        System.err.println("Two.m1");
+        One.m2();
     }
 }
