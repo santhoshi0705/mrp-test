@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actions>
+    <action>
+        <actionName>CUSTOM-Incrementals deploy</actionName>
+        <displayName>Incrementals deploy</displayName>
+        <goals>
+            <goal>clean</goal>
+            <goal>deploy</goal>
+            <goal>-Dset.changelist</goal>
+        </goals>
+        <properties>
+            <skipTests>true</skipTests>
+        </properties>
+    </action>
+</actions>
