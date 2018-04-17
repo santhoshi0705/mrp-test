@@ -10,6 +10,7 @@
         <changelist>-SNAPSHOT</changelist>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <incrementals.url>http://localhost:8081/repository/incrementals/</incrementals.url>
+        <scmTag>HEAD</scmTag>
     </properties>
     <distributionManagement>
         <repository>
@@ -25,7 +26,7 @@
         <connection>scm:git:git://github.com/jglick/${project.artifactId}.git</connection>
         <developerConnection>scm:git:git@github.com:jglick/${project.artifactId}.git</developerConnection>
         <url>https://github.com/jglick/${project.artifactId}</url>
-        <tag>HEAD</tag>
+        <tag>${scmTag}</tag>
     </scm>
     <modules>
         <module>one</module>
@@ -57,7 +58,7 @@
                     <plugin>
                         <groupId>org.codehaus.mojo</groupId>
                         <artifactId>flatten-maven-plugin</artifactId>
-                        <version>1.0.0</version>
+                        <version>1.0.1</version>
                         <configuration>
                             <updatePomFile>true</updatePomFile>
                         </configuration>
