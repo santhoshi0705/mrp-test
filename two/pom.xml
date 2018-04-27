@@ -4,14 +4,14 @@
     <parent>
         <groupId>test</groupId>
         <artifactId>mrp-test</artifactId>
-        <version>${revision}${changelist}</version>
+        <version>2.39</version>
     </parent>
     <artifactId>two</artifactId>
     <dependencies>
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>one</artifactId>
-            <version>2.39-SNAPSHOT</version> <!-- just testing MRP -->
+            <version>2.39</version> <!-- just testing MRP -->
         </dependency>
     </dependencies>
 </project>
