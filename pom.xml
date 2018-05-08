@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>test</groupId>
     <artifactId>mrp-test</artifactId>
-    <version>${revision}${changelist}</version>
+    <version>2.40</version>
     <packaging>pom</packaging>
     <properties>
         <revision>2.40</revision>
@@ -26,7 +26,7 @@
         <connection>scm:git:git://github.com/jglick/${project.artifactId}.git</connection>
         <developerConnection>scm:git:git@github.com:jglick/${project.artifactId}.git</developerConnection>
         <url>https://github.com/jglick/${project.artifactId}</url>
-        <tag>${scmTag}</tag>
+        <tag>mrp-test-2.40</tag>
     </scm>
     <build>
         <pluginManagement>
@@ -62,7 +62,7 @@
                 </executions>
                 <configuration>
                     <rules>
-                        <alwaysPass/>
+                        <alwaysPass />
                         <!-- TODO does not work: https://issues.apache.org/jira/browse/MENFORCER-281
                         <requirePluginVersions>
                             <banSnapshots>false</banSnapshots>
