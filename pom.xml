@@ -76,19 +76,6 @@
                     </rules>
                 </configuration>
             </plugin>
-            <plugin>
-                <groupId>test</groupId>
-                <artifactId>flatten-maven-plugin-53</artifactId>
-                <version>1.0-TESTING</version>
-                <executions>
-                    <execution>
-                        <id>test</id>
-                        <goals>
-                            <goal>test</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
         </plugins>
     </build>
     <modules>
