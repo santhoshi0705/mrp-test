@@ -76,6 +76,23 @@
                     </rules>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.codehaus.gmaven</groupId>
+                <artifactId>groovy-maven-plugin</artifactId>
+                <version>2.0</version>
+                <executions>
+                    <execution>
+                        <id>basedir</id>
+                        <goals>
+                            <goal>execute</goal>
+                        </goals>
+                        <phase>generate-test-sources</phase>
+                        <configuration>
+                            <source>println("Running in: ${project.basedir}")</source>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
     <modules>
