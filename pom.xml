@@ -6,7 +6,7 @@
     <version>${revision}${changelist}</version>
     <packaging>pom</packaging>
     <properties>
-        <revision>2.44</revision>
+        <revision>2.45</revision>
         <changelist>-SNAPSHOT</changelist>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <incrementals.url>http://localhost:8081/repository/incrementals/</incrementals.url>
