@@ -6,7 +6,7 @@
     <version>${revision}${changelist}</version>
     <packaging>pom</packaging>
     <properties>
-        <revision>2.45</revision>
+        <revision>2.46</revision>
         <changelist>-SNAPSHOT</changelist>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <incrementals.url>http://localhost:8081/repository/incrementals/</incrementals.url>
@@ -157,7 +157,7 @@
             </activation>
             <distributionManagement>
                 <repository>
-                    <id>incrementals</id>
+                    <id>mock-incrementals</id>
                     <url>${incrementals.url}</url>
                 </repository>
             </distributionManagement>
