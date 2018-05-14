@@ -77,19 +77,15 @@
                 </configuration>
             </plugin>
             <plugin>
-                <groupId>org.codehaus.gmaven</groupId>
-                <artifactId>groovy-maven-plugin</artifactId>
-                <version>2.0</version>
+                <groupId>test</groupId>
+                <artifactId>flatten-maven-plugin-53</artifactId>
+                <version>1.0-TESTING</version>
                 <executions>
                     <execution>
-                        <id>basedir</id>
+                        <id>test</id>
                         <goals>
-                            <goal>execute</goal>
+                            <goal>test</goal>
                         </goals>
-                        <phase>generate-test-sources</phase>
-                        <configuration>
-                            <source>println("Running in: ${project.basedir}")</source>
-                        </configuration>
                     </execution>
                 </executions>
             </plugin>
