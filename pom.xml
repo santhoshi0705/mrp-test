@@ -84,6 +84,34 @@
     </modules>
     <profiles>
         <profile>
+            <id>fix-superpom-source-fork</id>
+            <activation>
+                <property>
+                    <name>performRelease</name>
+                    <value>true</value>
+                </property>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <artifactId>maven-source-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>attach-sources</id>
+                                <phase>DO-NOT-ACTUALLY-RUN</phase>
+                            </execution>
+                            <execution>
+                                <id>attach-sources-no-fork</id>
+                                <goals>
+                                    <goal>jar-no-fork</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
             <id>consume-incrementals</id>
             <repositories>
                 <repository>
