@@ -3,10 +3,10 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>test</groupId>
     <artifactId>mrp-test</artifactId>
-    <version>2.50-SNAPSHOT</version>
+    <version>${revision}${changelist}</version>
     <packaging>pom</packaging>
     <properties>
-        <revision>2.46</revision>
+        <revision>2.50</revision>
         <changelist>-SNAPSHOT</changelist>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <incrementals.url>http://localhost:8081/repository/incrementals/</incrementals.url>
