@@ -172,6 +172,9 @@
                     <url>${incrementals.url}</url>
                 </repository>
             </distributionManagement>
+            <properties>
+                <completionGoals>incrementals:reincrementalify</completionGoals>
+            </properties>
             <build>
                 <plugins>
                     <plugin>
