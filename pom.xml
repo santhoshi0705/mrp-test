@@ -67,7 +67,9 @@
                 </executions>
                 <configuration>
                     <rules>
-                        <alwaysPass />
+                        <rule implementation="io.jenkins.tools.incrementals.enforcer.RequireExtensionVersion">
+                            <version>[1.0-beta-4,)</version>
+                        </rule>
                         <!-- TODO does not work: https://issues.apache.org/jira/browse/MENFORCER-281
                         <requirePluginVersions>
                             <banSnapshots>false</banSnapshots>
@@ -75,6 +77,13 @@
                         -->
                     </rules>
                 </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>io.jenkins.tools.incrementals</groupId>
+                        <artifactId>incrementals-enforcer-rules</artifactId>
+                        <version>1.0-beta-4</version>
+                    </dependency>
+                </dependencies>
             </plugin>
         </plugins>
     </build>
