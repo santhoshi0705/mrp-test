@@ -4,7 +4,7 @@
     <parent>
         <groupId>test</groupId>
         <artifactId>mrp-test</artifactId>
-        <version>${changelist}</version>
+        <version>999999</version>
     </parent>
     <artifactId>one</artifactId>
 </project>
