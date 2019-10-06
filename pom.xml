@@ -84,6 +84,12 @@
                     </dependency>
                 </dependencies>
             </plugin>
+            <plugin>
+                <artifactId>maven-release-plugin</artifactId>
+                <configuration>
+                    <preparationGoals>not-set-up-for-MRP</preparationGoals>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
     <modules>
