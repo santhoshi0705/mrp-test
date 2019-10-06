@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>test</groupId>
     <artifactId>mrp-test</artifactId>
-    <version>999999</version>
+    <version>${revision}${changelist}</version>
     <packaging>pom</packaging>
     <properties>
         <changelist>999999-SNAPSHOT</changelist>
@@ -25,7 +25,7 @@
         <connection>scm:git:git://github.com/jglick/${project.artifactId}.git</connection>
         <developerConnection>scm:git:git@github.com:jglick/${project.artifactId}.git</developerConnection>
         <url>https://github.com/jglick/${project.artifactId}</url>
-        <tag>mrp-test-999999</tag>
+        <tag>${scmTag}</tag>
     </scm>
     <build>
         <pluginManagement>
