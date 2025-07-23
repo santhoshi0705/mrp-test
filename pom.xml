@@ -1,7 +1,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
-                             http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>org.jenkins-ci.plugins</groupId>
@@ -14,10 +14,8 @@
 
   <properties>
     <jenkins.version>2.426.1</jenkins.version>
-    <java.level>11</java.level> <!-- Change to 17 if required -->
+    <java.level>11</java.level> <!-- Change to 17 if needed -->
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <!-- Required for Sonar's java.binaries setting -->
-    <sonar.java.binaries>${project.build.directory}</sonar.java.binaries>
   </properties>
 
   <repositories>
@@ -57,14 +55,14 @@
   <build>
     <extensions>
       <extension>
-  <groupId>io.jenkins.tools.incrementals</groupId>
-  <artifactId>git-changelist-maven-extension</artifactId>
-  <version>1.7</version> <!-- or 1.6 if you prefer -->
-</extension>
+        <groupId>io.jenkins.tools.incrementals</groupId>
+        <artifactId>git-changelist-maven-extension</artifactId>
+        <version>1.7</version> <!-- ✅ Fixed version -->
+      </extension>
     </extensions>
 
     <plugins>
-      <!-- Jenkins plugin packaging -->
+      <!-- Jenkins Plugin Packager -->
       <plugin>
         <groupId>org.jenkins-ci.tools</groupId>
         <artifactId>maven-hpi-plugin</artifactId>
@@ -72,7 +70,7 @@
         <extensions>true</extensions>
       </plugin>
 
-      <!-- Java compiler -->
+      <!-- Java Compiler -->
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
         <version>3.11.0</version>
@@ -82,7 +80,7 @@
         </configuration>
       </plugin>
 
-      <!-- Sonar scanner -->
+      <!-- SonarQube Scanner (Optional) -->
       <plugin>
         <groupId>org.sonarsource.scanner.maven</groupId>
         <artifactId>sonar-maven-plugin</artifactId>
@@ -92,7 +90,7 @@
   </build>
 
   <dependencies>
-    <!-- Jenkins core -->
+    <!-- Jenkins core APIs -->
     <dependency>
       <groupId>org.jenkins-ci.main</groupId>
       <artifactId>jenkins-core</artifactId>
@@ -100,14 +98,15 @@
       <scope>provided</scope>
     </dependency>
 
-    <!-- Mailer plugin if you use it -->
+    <!-- Mailer plugin (if needed) -->
     <dependency>
       <groupId>org.jenkins-ci.plugins</groupId>
       <artifactId>mailer</artifactId>
       <version>463.vf0c993a_eb_fa_b</version>
       <scope>provided</scope>
     </dependency>
-    <!-- Add other plugin dependencies as needed -->
+
+    <!-- Add other plugin dependencies here if needed -->
   </dependencies>
 
   <distributionManagement>
@@ -116,4 +115,5 @@
       <url>https://repo.jenkins-ci.org/releases/</url>
     </repository>
   </distributionManagement>
+
 </project>
