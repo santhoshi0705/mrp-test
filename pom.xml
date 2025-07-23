@@ -23,6 +23,12 @@
       <id>jenkins-releases</id>
       <url>https://repo.jenkins-ci.org/releases/</url>
     </repository>
+    <repository>
+      <id>jenkins-snapshots</id>
+      <url>https://repo.jenkins-ci.org/snapshots/</url>
+      <releases><enabled>false</enabled></releases>
+      <snapshots><enabled>true</enabled></snapshots>
+    </repository>
   </repositories>
 
   <pluginRepositories>
@@ -30,9 +36,23 @@
       <id>jenkins-releases</id>
       <url>https://repo.jenkins-ci.org/releases/</url>
     </pluginRepository>
+    <pluginRepository>
+      <id>jenkins-snapshots</id>
+      <url>https://repo.jenkins-ci.org/snapshots/</url>
+      <releases><enabled>false</enabled></releases>
+      <snapshots><enabled>true</enabled></snapshots>
+    </pluginRepository>
   </pluginRepositories>
 
   <build>
+    <extensions>
+      <extension>
+        <groupId>io.jenkins.tools.incrementals</groupId>
+        <artifactId>git-changelist-maven-extension</artifactId>
+        <version>1.1-SNAPSHOT</version>
+      </extension>
+    </extensions>
+
     <plugins>
       <!-- Jenkins Plugin Packager -->
       <plugin>
