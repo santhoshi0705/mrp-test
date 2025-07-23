@@ -1,7 +1,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  
+
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>org.jenkins-ci.plugins</groupId>
@@ -14,7 +14,7 @@
 
   <properties>
     <jenkins.version>2.426.1</jenkins.version>
-    <java.level>11</java.level> <!-- or 17 if needed -->
+    <java.level>11</java.level> <!-- Use 17 if your plugin code needs it -->
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 
@@ -23,10 +23,6 @@
       <id>jenkins-releases</id>
       <url>https://repo.jenkins-ci.org/releases/</url>
     </repository>
-    <repository>
-      <id>incrementals</id>
-      <url>https://repo.jenkins-ci.org/incrementals/</url>
-    </repository>
   </repositories>
 
   <pluginRepositories>
@@ -34,15 +30,11 @@
       <id>jenkins-releases</id>
       <url>https://repo.jenkins-ci.org/releases/</url>
     </pluginRepository>
-    <pluginRepository>
-      <id>incrementals</id>
-      <url>https://repo.jenkins-ci.org/incrementals/</url>
-    </pluginRepository>
   </pluginRepositories>
 
   <build>
     <plugins>
-      <!-- Jenkins HPI Plugin for plugin packaging -->
+      <!-- Jenkins HPI Plugin -->
       <plugin>
         <groupId>org.jenkins-ci.tools</groupId>
         <artifactId>maven-hpi-plugin</artifactId>
@@ -60,7 +52,7 @@
         </configuration>
       </plugin>
 
-      <!-- Optional: Sonar Scanner -->
+      <!-- Optional: SonarQube Scanner -->
       <plugin>
         <groupId>org.sonarsource.scanner.maven</groupId>
         <artifactId>sonar-maven-plugin</artifactId>
@@ -70,7 +62,7 @@
   </build>
 
   <dependencies>
-    <!-- Jenkins plugin parent -->
+    <!-- Jenkins core APIs -->
     <dependency>
       <groupId>org.jenkins-ci.main</groupId>
       <artifactId>jenkins-core</artifactId>
@@ -78,7 +70,7 @@
       <scope>provided</scope>
     </dependency>
 
-    <!-- Optional: Mailer plugin example -->
+    <!-- Mailer plugin (optional if used in your code) -->
     <dependency>
       <groupId>org.jenkins-ci.plugins</groupId>
       <artifactId>mailer</artifactId>
@@ -86,7 +78,7 @@
       <scope>provided</scope>
     </dependency>
 
-    <!-- Other plugin dependencies go here -->
+    <!-- Add other plugin dependencies as needed -->
   </dependencies>
 
   <distributionManagement>
