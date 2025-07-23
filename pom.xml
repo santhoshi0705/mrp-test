@@ -57,10 +57,10 @@
   <build>
     <extensions>
       <extension>
-        <groupId>io.jenkins.tools.incrementals</groupId>
-        <artifactId>git-changelist-maven-extension</artifactId>
-        <version>1.7</version> <!-- Stable version on Maven Central :contentReference[oaicite:1]{index=1} -->
-      </extension>
+  <groupId>io.jenkins.tools.incrementals</groupId>
+  <artifactId>git-changelist-maven-extension</artifactId>
+  <version>1.7</version> <!-- or 1.6 if you prefer -->
+</extension>
     </extensions>
 
     <plugins>
