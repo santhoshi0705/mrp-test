@@ -17,17 +17,13 @@
   </properties>
 
   <repositories>
-    <repository>
-      <id>jenkins-snapshots</id>
-      <url>https://repo.jenkins-ci.org/snapshots/</url>
-      <releases>
-        <enabled>false</enabled>
-      </releases>
-      <snapshots>
-        <enabled>true</enabled>
-      </snapshots>
-    </repository>
-  </repositories>
+  <repository>
+    <id>jenkins-snapshots</id>
+    <url>https://repo.jenkins-ci.org/snapshots/</url>
+    <releases><enabled>false</enabled></releases>
+    <snapshots><enabled>true</enabled></snapshots>
+  </repository>
+</repositories>
 
   <distributionManagement>
     <repository>
@@ -48,13 +44,16 @@
   </scm>
 
   <build>
-    <extensions>
-  <extension>
-    <groupId>io.jenkins.tools.incrementals</groupId>
-    <artifactId>git-changelist-maven-extension</artifactId>
-    <version>1.0</version>
-  </extension>
-</extensions>
+  <extensions>
+    <extension>
+      <groupId>io.jenkins.tools.incrementals</groupId>
+      <artifactId>git-changelist-maven-extension</artifactId>
+      <version>1.0</version> <!-- or use 1.0-beta-3 if that matches your incrementals-maven-plugin -->
+    </extension>
+  </extensions>
+
+  <!-- rest of your build/plugins/pluginManagement/plugins remain unchanged -->
+</build>
 
     <pluginManagement>
       <plugins>
