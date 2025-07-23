@@ -1,63 +1,99 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  
+  <modelVersion>4.0.0</modelVersion>
 
-    <modelVersion>4.0.0</modelVersion>
+  <groupId>org.jenkins-ci.plugins</groupId>
+  <artifactId>your-plugin-name</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>hpi</packaging>
 
-    <groupId>org.jenkins-ci.plugins</groupId>
-    <artifactId>your-plugin-id</artifactId>
-    <version>1.0-SNAPSHOT</version>
-    <packaging>hpi</packaging>
+  <name>Your Plugin Name</name>
+  <url>https://github.com/your-org/your-plugin</url>
 
-    <name>Your Jenkins Plugin</name>
-    <url>https://your.repo.url</url>
+  <properties>
+    <jenkins.version>2.426.1</jenkins.version>
+    <java.level>11</java.level> <!-- or 17 if needed -->
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
 
-    <properties>
-        <jenkins.version>2.426.1</jenkins.version>
-        <java.level>11</java.level>
-        <hpiPlugin.version>3.12</hpiPlugin.version>
-    </properties>
+  <repositories>
+    <repository>
+      <id>jenkins-releases</id>
+      <url>https://repo.jenkins-ci.org/releases/</url>
+    </repository>
+    <repository>
+      <id>incrementals</id>
+      <url>https://repo.jenkins-ci.org/incrementals/</url>
+    </repository>
+  </repositories>
 
-    <repositories>
-        <repository>
-            <id>incrementals</id>
-            <url>https://repo.jenkins-ci.org/incrementals/</url>
-        </repository>
-    </repositories>
+  <pluginRepositories>
+    <pluginRepository>
+      <id>jenkins-releases</id>
+      <url>https://repo.jenkins-ci.org/releases/</url>
+    </pluginRepository>
+    <pluginRepository>
+      <id>incrementals</id>
+      <url>https://repo.jenkins-ci.org/incrementals/</url>
+    </pluginRepository>
+  </pluginRepositories>
 
-    <pluginRepositories>
-        <pluginRepository>
-            <id>incrementals</id>
-            <url>https://repo.jenkins-ci.org/incrementals/</url>
-        </pluginRepository>
-    </pluginRepositories>
+  <build>
+    <plugins>
+      <!-- Jenkins HPI Plugin for plugin packaging -->
+      <plugin>
+        <groupId>org.jenkins-ci.tools</groupId>
+        <artifactId>maven-hpi-plugin</artifactId>
+        <version>3.13</version>
+        <extensions>true</extensions>
+      </plugin>
 
-    <build>
-        <extensions>
-            <!-- Released version instead of 1.1-SNAPSHOT -->
-            <extension>
-                <groupId>io.jenkins.tools.incrementals</groupId>
-                <artifactId>git-changelist-maven-extension</artifactId>
-                <version>1.0</version>
-            </extension>
-        </extensions>
-        <plugins>
-            <plugin>
-                <groupId>org.jenkins-ci.tools</groupId>
-                <artifactId>maven-hpi-plugin</artifactId>
-                <version>${hpiPlugin.version}</version>
-            </plugin>
-        </plugins>
-    </build>
+      <!-- Compiler Plugin -->
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.11.0</version>
+        <configuration>
+          <source>${java.level}</source>
+          <target>${java.level}</target>
+        </configuration>
+      </plugin>
 
-    <dependencies>
-        <dependency>
-            <groupId>org.jenkins-ci.main</groupId>
-            <artifactId>jenkins-core</artifactId>
-            <version>${jenkins.version}</version>
-            <scope>provided</scope>
-        </dependency>
-        <!-- Add more plugin-specific dependencies here -->
-    </dependencies>
+      <!-- Optional: Sonar Scanner -->
+      <plugin>
+        <groupId>org.sonarsource.scanner.maven</groupId>
+        <artifactId>sonar-maven-plugin</artifactId>
+        <version>4.0.0.2929</version>
+      </plugin>
+    </plugins>
+  </build>
+
+  <dependencies>
+    <!-- Jenkins plugin parent -->
+    <dependency>
+      <groupId>org.jenkins-ci.main</groupId>
+      <artifactId>jenkins-core</artifactId>
+      <version>${jenkins.version}</version>
+      <scope>provided</scope>
+    </dependency>
+
+    <!-- Optional: Mailer plugin example -->
+    <dependency>
+      <groupId>org.jenkins-ci.plugins</groupId>
+      <artifactId>mailer</artifactId>
+      <version>463.vf0c993a_eb_fa_b</version>
+      <scope>provided</scope>
+    </dependency>
+
+    <!-- Other plugin dependencies go here -->
+  </dependencies>
+
+  <distributionManagement>
+    <repository>
+      <id>jenkins-releases</id>
+      <url>https://repo.jenkins-ci.org/releases/</url>
+    </repository>
+  </distributionManagement>
 
 </project>
