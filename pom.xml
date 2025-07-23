@@ -29,6 +29,10 @@
       <releases><enabled>false</enabled></releases>
       <snapshots><enabled>true</enabled></snapshots>
     </repository>
+    <repository>
+      <id>jenkins-incrementals</id>
+      <url>https://repo.jenkins-ci.org/incrementals/</url>
+    </repository>
   </repositories>
 
   <pluginRepositories>
@@ -42,6 +46,10 @@
       <releases><enabled>false</enabled></releases>
       <snapshots><enabled>true</enabled></snapshots>
     </pluginRepository>
+    <pluginRepository>
+      <id>jenkins-incrementals</id>
+      <url>https://repo.jenkins-ci.org/incrementals/</url>
+    </pluginRepository>
   </pluginRepositories>
 
   <build>
@@ -49,7 +57,7 @@
       <extension>
         <groupId>io.jenkins.tools.incrementals</groupId>
         <artifactId>git-changelist-maven-extension</artifactId>
-        <version>1.1-SNAPSHOT</version>
+        <version>1.0.7</version> <!-- Use stable release instead of SNAPSHOT -->
       </extension>
     </extensions>
 
