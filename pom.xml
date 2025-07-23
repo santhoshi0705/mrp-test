@@ -1,7 +1,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
-                             http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 
   <modelVersion>4.0.0</modelVersion>
 
@@ -10,12 +9,12 @@
   <version>1.0.7</version>
   <packaging>hpi</packaging>
 
-  <name>Your Plugin Name</name>
+  <name>MRP Test Plugin</name>
   <url>https://github.com/your-org/your-plugin</url>
 
   <properties>
     <jenkins.version>2.426.1</jenkins.version>
-    <java.level>11</java.level> <!-- Change to 17 if required -->
+    <java.level>11</java.level>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 
@@ -27,8 +26,8 @@
     <repository>
       <id>jenkins-snapshots</id>
       <url>https://repo.jenkins-ci.org/snapshots/</url>
-      <releases><enabled>false</enabled></releases>
       <snapshots><enabled>true</enabled></snapshots>
+      <releases><enabled>false</enabled></releases>
     </repository>
     <repository>
       <id>jenkins-incrementals</id>
@@ -44,8 +43,6 @@
     <pluginRepository>
       <id>jenkins-snapshots</id>
       <url>https://repo.jenkins-ci.org/snapshots/</url>
-      <releases><enabled>false</enabled></releases>
-      <snapshots><enabled>true</enabled></snapshots>
     </pluginRepository>
     <pluginRepository>
       <id>jenkins-incrementals</id>
@@ -54,16 +51,7 @@
   </pluginRepositories>
 
   <build>
-    <extensions>
-      <extension>
-        <groupId>io.jenkins.tools.incrementals</groupId>
-        <artifactId>git-changelist-maven-extension</artifactId>
-        <version>1.0.7</version> <!-- Stable release -->
-      </extension>
-    </extensions>
-
     <plugins>
-      <!-- Jenkins Plugin Packager -->
       <plugin>
         <groupId>org.jenkins-ci.tools</groupId>
         <artifactId>maven-hpi-plugin</artifactId>
@@ -71,7 +59,6 @@
         <extensions>true</extensions>
       </plugin>
 
-      <!-- Java Compiler -->
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
         <version>3.11.0</version>
@@ -81,7 +68,6 @@
         </configuration>
       </plugin>
 
-      <!-- SonarQube Scanner (Optional) -->
       <plugin>
         <groupId>org.sonarsource.scanner.maven</groupId>
         <artifactId>sonar-maven-plugin</artifactId>
@@ -91,7 +77,7 @@
   </build>
 
   <dependencies>
-    <!-- Jenkins core APIs -->
+    <!-- Jenkins Core -->
     <dependency>
       <groupId>org.jenkins-ci.main</groupId>
       <artifactId>jenkins-core</artifactId>
@@ -99,15 +85,13 @@
       <scope>provided</scope>
     </dependency>
 
-    <!-- Mailer plugin (if needed) -->
+    <!-- Example dependency: Mailer -->
     <dependency>
       <groupId>org.jenkins-ci.plugins</groupId>
       <artifactId>mailer</artifactId>
       <version>463.vf0c993a_eb_fa_b</version>
       <scope>provided</scope>
     </dependency>
-
-    <!-- Add other plugin dependencies here if needed -->
   </dependencies>
 
   <distributionManagement>
