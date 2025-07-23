@@ -6,8 +6,8 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>org.jenkins-ci.plugins</groupId>
-  <artifactId>your-plugin-name</artifactId>
-  <version>1.0-SNAPSHOT</version>
+  <artifactId>mrp-test-plugin</artifactId>
+  <version>1.0.7</version>
   <packaging>hpi</packaging>
 
   <name>Your Plugin Name</name>
