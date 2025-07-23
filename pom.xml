@@ -20,8 +20,12 @@
   <repository>
     <id>jenkins-snapshots</id>
     <url>https://repo.jenkins-ci.org/snapshots/</url>
-    <releases><enabled>false</enabled></releases>
-    <snapshots><enabled>true</enabled></snapshots>
+    <snapshots>
+      <enabled>true</enabled>
+    </snapshots>
+    <releases>
+      <enabled>false</enabled>
+    </releases>
   </repository>
 </repositories>
 
@@ -42,17 +46,15 @@
     <url>https://github.com/jglick/${project.artifactId}</url>
     <tag>${scmTag}</tag>
   </scm>
-
-  <build>
+<build>
   <extensions>
     <extension>
       <groupId>io.jenkins.tools.incrementals</groupId>
       <artifactId>git-changelist-maven-extension</artifactId>
-      <version>1.0</version> <!-- or use 1.0-beta-3 if that matches your incrementals-maven-plugin -->
+      <version>1.0</version> <!-- or 1.0-beta-3 -->
     </extension>
   </extensions>
-
-  <!-- rest of your build/plugins/pluginManagement/plugins remain unchanged -->
+  ...
 </build>
 
     <pluginManagement>
