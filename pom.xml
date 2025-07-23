@@ -14,7 +14,7 @@
 
   <properties>
     <jenkins.version>2.426.1</jenkins.version>
-    <java.level>11</java.level> <!-- Use 17 if your plugin code needs it -->
+    <java.level>11</java.level> <!-- Change to 17 if required -->
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 
@@ -34,7 +34,7 @@
 
   <build>
     <plugins>
-      <!-- Jenkins HPI Plugin -->
+      <!-- Jenkins Plugin Packager -->
       <plugin>
         <groupId>org.jenkins-ci.tools</groupId>
         <artifactId>maven-hpi-plugin</artifactId>
@@ -42,7 +42,7 @@
         <extensions>true</extensions>
       </plugin>
 
-      <!-- Compiler Plugin -->
+      <!-- Java Compiler -->
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
         <version>3.11.0</version>
@@ -52,7 +52,7 @@
         </configuration>
       </plugin>
 
-      <!-- Optional: SonarQube Scanner -->
+      <!-- SonarQube Scanner (Optional) -->
       <plugin>
         <groupId>org.sonarsource.scanner.maven</groupId>
         <artifactId>sonar-maven-plugin</artifactId>
@@ -70,7 +70,7 @@
       <scope>provided</scope>
     </dependency>
 
-    <!-- Mailer plugin (optional if used in your code) -->
+    <!-- Mailer plugin (if needed) -->
     <dependency>
       <groupId>org.jenkins-ci.plugins</groupId>
       <artifactId>mailer</artifactId>
@@ -78,7 +78,7 @@
       <scope>provided</scope>
     </dependency>
 
-    <!-- Add other plugin dependencies as needed -->
+    <!-- Add other plugin dependencies here if used -->
   </dependencies>
 
   <distributionManagement>
