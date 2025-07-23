@@ -1,72 +1,63 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
-  <parent>
-    <groupId>org.sonatype.oss</groupId>
-    <artifactId>oss-parent</artifactId>
-    <version>7</version>
-  </parent>
+    <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.cloudbees</groupId>
-  <artifactId>maven-license-plugin</artifactId>
-  <version>1.8-SNAPSHOT</version>
-  <packaging>maven-plugin</packaging>
+    <groupId>org.jenkins-ci.plugins</groupId>
+    <artifactId>your-plugin-id</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>hpi</packaging>
 
-  <name>maven-license-plugin Maven Plugin</name>
-  <url>http://maven.apache.org</url>
+    <name>Your Jenkins Plugin</name>
+    <url>https://your.repo.url</url>
 
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-  </properties>
-  
-  <scm>
-    <connection>scm:git:git@github.com:cloudbees/maven-license-plugin.git</connection>
-    <developerConnection>scm:git:git@github.com:cloudbees/maven-license-plugin.git</developerConnection>
-  </scm>
-    
+    <properties>
+        <jenkins.version>2.426.1</jenkins.version>
+        <java.level>11</java.level>
+        <hpiPlugin.version>3.12</hpiPlugin.version>
+    </properties>
 
-  <dependencies>
-    <dependency>
-      <groupId>org.apache.maven</groupId>
-      <artifactId>maven-plugin-api</artifactId>
-      <version>2.0</version>
-    </dependency>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>3.8.1</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.maven</groupId>
-      <artifactId>maven-core</artifactId>
-      <version>2.0</version>
-    </dependency>
-    <dependency>
-      <groupId>org.codehaus.groovy</groupId>
-      <artifactId>groovy</artifactId>
-      <version>1.6.5</version>
-    </dependency>
-  </dependencies>
+    <repositories>
+        <repository>
+            <id>incrementals</id>
+            <url>https://repo.jenkins-ci.org/incrementals/</url>
+        </repository>
+    </repositories>
 
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-plugin-plugin</artifactId>
-        <version>2.5.1</version>
-        <configuration>
-          <goalPrefix>maven-license-plugin</goalPrefix>
-        </configuration>
-        <executions>
-          <execution>
-            <id>generated-helpmojo</id>
-            <goals>
-              <goal>helpmojo</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
-    </plugins>
-  </build>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>incrementals</id>
+            <url>https://repo.jenkins-ci.org/incrementals/</url>
+        </pluginRepository>
+    </pluginRepositories>
+
+    <build>
+        <extensions>
+            <!-- Released version instead of 1.1-SNAPSHOT -->
+            <extension>
+                <groupId>io.jenkins.tools.incrementals</groupId>
+                <artifactId>git-changelist-maven-extension</artifactId>
+                <version>1.0</version>
+            </extension>
+        </extensions>
+        <plugins>
+            <plugin>
+                <groupId>org.jenkins-ci.tools</groupId>
+                <artifactId>maven-hpi-plugin</artifactId>
+                <version>${hpiPlugin.version}</version>
+            </plugin>
+        </plugins>
+    </build>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.jenkins-ci.main</groupId>
+            <artifactId>jenkins-core</artifactId>
+            <version>${jenkins.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <!-- Add more plugin-specific dependencies here -->
+    </dependencies>
+
 </project>
